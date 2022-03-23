@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const path = require('path');
 
 const commonConfig = require('./webpack.common');
-const dependencies = require('../package.json').dependencies;
+const packageJson = require('../package.json');
 
 const devConfig = {
   mode: 'development',
@@ -19,7 +19,7 @@ const devConfig = {
       remotes: {
         'marketing': 'marketing@http://localhost:8081/remoteEntry.js'
       },
-      shared: dependencies
+      shared: packageJson.dependencies
     })
   ]
 };
