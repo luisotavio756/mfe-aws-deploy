@@ -32,5 +32,10 @@ jobs:
           aws s3 sync \
             --no-progress \
             --delete \
-            --acl public-read \
             ./dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
+
+      - name: Revalidate CloudFront
+        run: |-
+          aws cloudfront create-invalidation
+            --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}
+            --paths "/container/latest/index.html"
