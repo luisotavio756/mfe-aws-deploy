@@ -32,7 +32,8 @@ jobs:
           aws s3 sync \
             --no-progress \
             --delete \
-            ./dist/ s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
+            --acl public-read \
+            ./dist/ s3://mfp-bucket-udemy/container/latest
 
       - name: Revalidate CloudFront
         run: |-
