@@ -33,7 +33,7 @@ jobs:
             --no-progress \
             --delete \
             --acl public-read \
-            ./dist/ s3://mfp-bucket-udemy/container/latest
+            ./dist/ s3://mfp-bucket-project/container/latest
 
       - name: Revalidate CloudFront
         run: |-
