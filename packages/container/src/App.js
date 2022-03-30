@@ -1,13 +1,14 @@
 import React from 'react';
 import MarketingApp from '../component/MarketingApp';
+import Header from '../component/Header';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <>
-      <h1>Shell Container !!!</h1>
-      <hr />
+    <BrowserRouter>
+      <Header />
       <MarketingApp />
-    </>
+    </BrowserRouter>
   );
 }
 
