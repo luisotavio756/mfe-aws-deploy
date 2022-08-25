@@ -14,8 +14,8 @@ function App() {
     <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/pricing" component={Pricing} />
-          <Route path="/" component={Landing} />
+          <Route exact path="/Test/pricing" component={Pricing} />
+          <Route path="/Test" component={Landing} />
         </Switch>
       </BrowserRouter>
     </StylesProvider>
