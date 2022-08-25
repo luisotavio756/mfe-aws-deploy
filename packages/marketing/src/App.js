@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, BrowserRouter, useRouteMatch } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
 import Pricing from '../components/Pricing';
@@ -10,12 +10,14 @@ const generateClassName = createGenerateClassName({
 });
 
 function App() {
+  const routeMatch = useRouteMatch();
+
   return (
     <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/Test/pricing" component={Pricing} />
-          <Route path="/Test" component={Landing} />
+          <Route exact path={`${routeMatch.url}/pricing`} component={Pricing} />
+          <Route path={`${routeMatch.url}/`} component={Landing} />
         </Switch>
       </BrowserRouter>
     </StylesProvider>
