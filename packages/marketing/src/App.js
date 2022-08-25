@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
 import Pricing from '../components/Pricing';
@@ -12,12 +12,12 @@ const generateClassName = createGenerateClassName({
 function App() {
   return (
     <StylesProvider generateClassName={generateClassName}>
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route exact path="/Test/pricing" component={Pricing} />
           <Route path="/" component={Landing} />
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </StylesProvider>
   );
 }
